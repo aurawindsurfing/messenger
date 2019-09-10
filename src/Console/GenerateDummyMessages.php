@@ -2,12 +2,12 @@
 
 namespace Aurawindsurfing\Messenger\Console;
 
-use Aurawindsurfing\Messenger\Message;
-use Aurawindsurfing\Messenger\Thread;
 use Illuminate\Console\Command;
+use Aurawindsurfing\Messenger\Thread;
+use Aurawindsurfing\Messenger\Message;
 
-class GenerateDummyMessages extends Command {
-
+class GenerateDummyMessages extends Command
+{
     protected $signature = 'messenger:generate';
     protected $description = 'Generates dummy messages for view testing';
 

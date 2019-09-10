@@ -2,12 +2,12 @@
 
 namespace Aurawindsurfing\Messenger\Tests;
 
-use Aurawindsurfing\Messenger\Message;
 use Aurawindsurfing\Messenger\Thread;
+use Aurawindsurfing\Messenger\Message;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ThreadTest extends TestCase {
-
+class ThreadTest extends TestCase
+{
     use RefreshDatabase;
 
     /** @test */
@@ -28,13 +28,4 @@ class ThreadTest extends TestCase {
         $this->assertCount(1, $thread->messages);
         $this->assertTrue($thread->messages->contains($message));
     }
-
-
-
-
-
-
 }
-
-
-

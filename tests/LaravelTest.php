@@ -2,15 +2,14 @@
 
 namespace Aurawindsurfing\Messenger\Tests;
 
+use Aurawindsurfing\Messenger\Thread;
 use Aurawindsurfing\Messenger\Message;
 use Aurawindsurfing\Messenger\Tests\Models\User;
-use Aurawindsurfing\Messenger\Thread;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class LaravelTest extends TestCase {
-
+class LaravelTest extends TestCase
+{
     use RefreshDatabase;
-
 
     /** @test */
     public function the_console_command_generated_dummy_data()
@@ -38,5 +37,4 @@ class LaravelTest extends TestCase {
         $this->assertEquals(0, Thread::all()->count());
         $this->assertEquals(0, Message::all()->count());
     }
-
 }

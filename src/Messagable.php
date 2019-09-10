@@ -2,8 +2,8 @@
 
 namespace Aurawindsurfing\Messenger;
 
-trait Messagable {
-
+trait Messagable
+{
     public function threads()
     {
         return Thread::whereHas('messages', function ($query) {
@@ -25,5 +25,4 @@ trait Messagable {
     {
         return str_replace_last('{user}', $this->id, config('messenger.create'));
     }
-
 }

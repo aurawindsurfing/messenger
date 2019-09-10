@@ -2,14 +2,14 @@
 
 namespace Aurawindsurfing\Messenger\Tests;
 
+use Carbon\Carbon;
+use Aurawindsurfing\Messenger\Thread;
 use Aurawindsurfing\Messenger\Message;
 use Aurawindsurfing\Messenger\Tests\Models\User;
-use Aurawindsurfing\Messenger\Thread;
-use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class MessegableTest extends TestCase {
-
+class MessegableTest extends TestCase
+{
     use RefreshDatabase;
 
     /** @test */
@@ -56,9 +56,4 @@ class MessegableTest extends TestCase {
 
         $this->assertEquals(2, $pat->unreadMessages()->count());
     }
-
-
 }
-
-
-

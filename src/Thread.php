@@ -3,15 +3,14 @@
 namespace Aurawindsurfing\Messenger;
 
 use App\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Thread
- * @package Aurawindsurfing\Messenger
+ * Class Thread.
  */
-class Thread extends Model {
-
+class Thread extends Model
+{
     /**
      * @var string
      */
@@ -74,6 +73,4 @@ class Thread extends Model {
 
         return str_replace_last('{thread}', $this->id, config('messenger.store'));
     }
-
-
 }

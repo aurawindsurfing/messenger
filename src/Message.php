@@ -5,11 +5,10 @@ namespace Aurawindsurfing\Messenger;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Message
- * @package Aurawindsurfing\Messenger
+ * Class Message.
  */
-class Message extends Model {
-
+class Message extends Model
+{
     /**
      * @var string
      */
@@ -37,6 +36,4 @@ class Message extends Model {
     {
         return $this->belongsTo(\App\User::class);
     }
-
-
 }

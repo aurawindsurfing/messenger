@@ -3,24 +3,20 @@
 namespace Aurawindsurfing\Messenger\Http\Controllers;
 
 use App\User;
-use Aurawindsurfing\Messenger\Message;
-use Aurawindsurfing\Messenger\Thread;
 use Illuminate\Support\Facades\Auth;
+use Aurawindsurfing\Messenger\Thread;
 
-class MessagesController {
-
-
+class MessagesController
+{
     public function index(Thread $thread)
     {
         $user = Auth::user();
 
-        if (!isset($user))
-        {
+        if (! isset($user)) {
             return abort(404);
         }
 
-        if (!$thread->users()->get()->contains($user))
-        {
+        if (! $thread->users()->get()->contains($user)) {
             return abort(404);
         }
 
@@ -28,10 +24,8 @@ class MessagesController {
         $threads = null;
         $activeThread = Thread::find($thread->id);
 
-        if (isset($user))
-        {
-            if ($user->threads()->exists())
-            {
+        if (isset($user)) {
+            if ($user->threads()->exists()) {
                 $threads = $user->threads()->with('messages')->get();
             }
         }
@@ -50,10 +44,8 @@ class MessagesController {
             'to_user_id'   => $user,
         ]);
 
-        if (isset($fromUser))
-        {
-            if ($fromUser->threads()->exists())
-            {
+        if (isset($fromUser)) {
+            if ($fromUser->threads()->exists()) {
                 $threads = $fromUser->threads()->with('messages')->get();
             }
         }
@@ -76,6 +68,4 @@ class MessagesController {
 
         return redirect($thread->path());
     }
-
 }
-

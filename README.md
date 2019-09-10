@@ -144,7 +144,7 @@ php artisan messenger:deleteAllData
 
 Visit:
 
-```php
+```bash
 https://yourapp.test/messages/1
 ```
 To see message threads received by first user

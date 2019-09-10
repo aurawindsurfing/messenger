@@ -30,7 +30,7 @@ composer require aurawindsurfing/messenger
 
 Or place manually in composer.json:
 
-```
+```php
 "require": {
     "aurawindsurfing/messenger": "~1.0"
 }
@@ -38,12 +38,12 @@ Or place manually in composer.json:
 
 Run:
 
-```
+```bash
 composer update
 ```
 
 This package apart from standard config and migrations files includes also controller, views, factories and console commands. To publish all assets run:
-```
+```bash
 php artisan vendor:publish  --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
 ```
 
@@ -51,17 +51,17 @@ php artisan vendor:publish  --provider="Aurawindsurfing\Messenger\MessengerServi
 
 Publish config:
 
-```
+```bash
 php artisan vendor:publish --tag=config --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
 ```
 It will create a file:
-```
+```bash
 config/messenger.php
 ```
 
 **(Optional)** This package adds basic routes to your application needed for handling the message creation and viewing of messages, you can customise them in your config file:
 
-```
+```php
 'index'   => '/messages/{thread?}',
 'create'  => '/messages/{user}/create',
 'store'   => '/messages/{thread}/store',
@@ -71,31 +71,31 @@ Create a `users` table if you do not have one already. If you need one, the defa
 
 **(Optional)** This package allows you to create fake messages between users so you can construct views more easily. You can customise for which users the messages will be created in your config file:
 
-```
+```php
 'firstUserId'  => 1,
 'secondUserId' => 2,
 ```
 
 Publish views:
 
-```
+```bash
 php artisan vendor:publish --tag=views --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
 ```
 
 They will be placed in:
-```
+```bash
 resources/views/vendor/messenger
 ```
     
 Publish migrations:
 
-```
+```bash
 php artisan vendor:publish --tag=migrations --provider="Aurawindsurfing\Messenger\MessengerServiceProvider" 
 ```
 
 Migrate your database:
 
-```
+```bash
 php artisan migrate
 ```
 
@@ -108,7 +108,7 @@ Customising MessengerController:
 It is very likely that you would like to customise controller as usually messages are viewed in some sort of user profile page or menu.
 To do this simply extend provided controller and overwrite it's methods.
 
-```
+```php
 <?php
 
 namespace App\Http\Controllers;
@@ -130,11 +130,11 @@ class User extends Authenticatable {
 ```
 
 Finally for your convenience you can populate your messenger tables with dummy data so you will be able to see some messages displayed. To do this run:
-```
+```bash
 php artisan messenger:generate
 ```
 To clear all your dummy data run below command in your console. Be careful as this command will delete all data from messages table including real messages if they exist!
-```
+```bash
 php artisan messenger:deleteAllData
 ```
 
@@ -144,7 +144,7 @@ php artisan messenger:deleteAllData
 
 Visit:
 
-```
+```php
 https://yourapp.test/messages/1
 ```
 To see message threads received by first user
@@ -170,7 +170,6 @@ If you discover any security related issues, please email tom@gazeta.ie instead 
 ## Credits
 
 - [Tomasz Lotocki](https://github.com/aurawindsurfing)
-- [All Contributors](../../contributors)
 
 ## License
 

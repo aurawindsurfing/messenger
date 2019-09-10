@@ -18,5 +18,4 @@ class MessageTest extends TestCase
 
         $this->assertInstanceOf(Thread::class, $message->thread);
     }
-
 }

@@ -19,12 +19,4 @@ class MessageTest extends TestCase
         $this->assertInstanceOf(Thread::class, $message->thread);
     }
 
-//    /** @test */
-//    public function a_message_requires_a_subject()
-//    {
-//        $attributes = factory(Thread::class)->raw(['subject' => '']);
-//
-//        $this->post(, $attributes)
-//            ->assertSessionHasErrors('subject');
-//    }
 }

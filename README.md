@@ -7,6 +7,8 @@
 
 This package allows you co create simple user to user messaging system to be used within your Laravel application. It does not have support for group conversations. It does not support editing of messages. It is simply send and receive messenger.
 
+
+
 ## Features
 * One to one messaging between users
 * Multiple conversations (threads) per user

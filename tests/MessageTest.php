@@ -2,13 +2,12 @@
 
 namespace Aurawindsurfing\Messenger\Tests;
 
-use Aurawindsurfing\Messenger\Message;
-use Aurawindsurfing\Messenger\Tests\Models\User;
 use Aurawindsurfing\Messenger\Thread;
+use Aurawindsurfing\Messenger\Message;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class MessageTest extends TestCase {
-
+class MessageTest extends TestCase
+{
     use RefreshDatabase;
 
     /** @test */
@@ -28,12 +27,4 @@ class MessageTest extends TestCase {
 //        $this->post(, $attributes)
 //            ->assertSessionHasErrors('subject');
 //    }
-
-
-
-
-
 }
-
-
-

@@ -2,12 +2,12 @@
 
 namespace Aurawindsurfing\Messenger;
 
+use Illuminate\Support\ServiceProvider;
 use Aurawindsurfing\Messenger\Console\DeleteAllData;
 use Aurawindsurfing\Messenger\Console\GenerateDummyMessages;
-use Illuminate\Support\ServiceProvider;
 
-class MessengerServiceProvider extends ServiceProvider {
-
+class MessengerServiceProvider extends ServiceProvider
+{
     /**
      * Bootstrap the application services.
      */
@@ -16,35 +16,31 @@ class MessengerServiceProvider extends ServiceProvider {
         /*
          * Optional methods to load your package assets
          */
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'messenger');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'messenger');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-
-        if ($this->app->runningInConsole())
-        {
+        if ($this->app->runningInConsole()) {
             //Publishing config files.
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('messenger.php'),
+                __DIR__.'/../config/config.php' => config_path('messenger.php'),
             ], 'config');
 
             // Publishing the views.
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/messenger'),
+                __DIR__.'/../resources/views' => resource_path('views/vendor/messenger'),
             ], 'views');
 
             // Publishing the migration files.
-            if (empty(glob(database_path('migrations/*_create_threads_table.php'))))
-            {
+            if (empty(glob(database_path('migrations/*_create_threads_table.php')))) {
                 $this->publishes([
-                    __DIR__ . '/../database/migrations/0000_00_00_000000_create_threads_table.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_threads_table.php'),
+                    __DIR__.'/../database/migrations/0000_00_00_000000_create_threads_table.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_threads_table.php'),
                 ], 'migrations');
             }
 
             // Publishing the migration files.
-            if (empty(glob(database_path('migrations/*_create_messages_table.php'))))
-            {
+            if (empty(glob(database_path('migrations/*_create_messages_table.php')))) {
                 $this->publishes([
-                    __DIR__ . '/../database/migrations/0000_00_00_000000_create_messages_table.php' => database_path('migrations/' . date('Y_m_d_His', time()) . '_create_messages_table.php'),
+                    __DIR__.'/../database/migrations/0000_00_00_000000_create_messages_table.php' => database_path('migrations/'.date('Y_m_d_His', time()).'_create_messages_table.php'),
                 ], 'migrations');
             }
 
@@ -62,10 +58,9 @@ class MessengerServiceProvider extends ServiceProvider {
     public function register()
     {
         // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'messenger');
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'messenger');
 
         // Register package factories to use with main application
-        $this->app->make('Illuminate\Database\Eloquent\Factory')->load(__DIR__ . '/../database/factories');
-
+        $this->app->make('Illuminate\Database\Eloquent\Factory')->load(__DIR__.'/../database/factories');
     }
 }

@@ -2,14 +2,14 @@
 
 namespace Aurawindsurfing\Messenger\Tests;
 
-use Aurawindsurfing\Messenger\MessengerServiceProvider;
-use Aurawindsurfing\Messenger\Tests\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Aurawindsurfing\Messenger\Tests\Models\User;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Aurawindsurfing\Messenger\MessengerServiceProvider;
 
-class TestCase extends OrchestraTestCase {
-
+class TestCase extends OrchestraTestCase
+{
     /**
      * Setup the test environment.
      */
@@ -23,10 +23,10 @@ class TestCase extends OrchestraTestCase {
             $table->timestamps();
         });
 
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->artisan('migrate');
 
-        $this->withFactories(__DIR__ . '/../database/factories');
+        $this->withFactories(__DIR__.'/../database/factories');
     }
 
     protected function getPackageProviders($app)
@@ -51,5 +51,4 @@ class TestCase extends OrchestraTestCase {
 
         return $user;
     }
-
 }

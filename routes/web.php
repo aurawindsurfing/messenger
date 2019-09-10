@@ -16,4 +16,3 @@ Route::middleware(['web'])->namespace('Aurawindsurfing\Messenger\Http\Controller
     Route::get(config('messenger.create'), 'MessagesController@create');
     Route::post(config('messenger.store'), 'MessagesController@store');
 });
-

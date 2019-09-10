@@ -5,9 +5,10 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/aurawindsurfing/messenger.svg?style=flat-square)](https://scrutinizer-ci.com/g/aurawindsurfing/messenger)
 [![Total Downloads](https://img.shields.io/packagist/dt/aurawindsurfing/messenger.svg?style=flat-square)](https://packagist.org/packages/aurawindsurfing/messenger)
 
-This package allows you co create simple user to user messaging system to be used within your Laravel application. It does not have support for group conversations. It does not support editing of messages. It is simply send and receive messenger.
+This package allows you co create simple user to user messaging system to be used within your Laravel application. It comes packaged with all the views and even a simple admin panel.
+It does not have support for group conversations yet as well as it does not support editing of messages. It is simply send and receive messenger.
 
-
+![Messenger Dashboard](https://github.com/aurawindsurfing/messenger/blob/master/messages_dashboard.png?raw=true)
 
 ## Features
 * One to one messaging between users

@@ -3,7 +3,6 @@
 [![Travis Status][badge_build]][link-travis]
 [![Coverage Status][badge_coverage]][link-scrutinizer]
 [![Scrutinizer Code Quality][badge_quality]][link-scrutinizer]
-[![SensioLabs Insight][badge_insight]][link-insight]
 [![Github Issues][badge_issues]][link-github-issues]
 
 [![Packagist][badge_package]][link-packagist]
@@ -192,7 +191,6 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [badge_build]:        https://img.shields.io/travis/aurawindsurfing/messenger.svg?style=flat-square
 [badge_coverage]:     https://img.shields.io/scrutinizer/coverage/g/aurawindsurfing/messenger.svg?style=flat-square
 [badge_quality]:      https://img.shields.io/scrutinizer/g/aurawindsurfing/messenger.svg?style=flat-square
-[badge_insight]:      https://img.shields.io/sensiolabs/i/0fe62754-1219-409a-9d05-b6ae7e3e342f.svg?style=flat-square
 [badge_issues]:       https://img.shields.io/github/issues/aurawindsurfing/messenger.svg?style=flat-square
 [badge_package]:      https://img.shields.io/badge/package-aurawindsurfing/messenger-blue.svg?style=flat-square
 [badge_release]:      https://img.shields.io/packagist/v/aurawindsurfing/messenger.svg?style=flat-square

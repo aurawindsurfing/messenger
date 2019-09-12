@@ -2,8 +2,13 @@
     "name": "aurawindsurfing/messenger",
     "description": "Super simple user 1v1 messaging system to be used within Laravel application.",
     "keywords": [
-        "aurawindsurfing",
-        "messenger"
+        "laravel",
+        "php",
+        "messenger",
+        "discussion",
+        "conversation",
+        "chat",
+        "aurawindsurfing"
     ],
     "homepage": "https://github.com/aurawindsurfing/messenger",
     "license": "MIT",

@@ -12,7 +12,7 @@
 */
 
 Route::middleware(['web'])->namespace(config('messenger.controller_namespace'))->group(function () {
-    Route::get(config('messenger.index'), 'MessagesController@' . config('messenger.controller_index'));
-    Route::get(config('messenger.create'), 'MessagesController@' . config('messenger.controller_create'));
-    Route::post(config('messenger.store'), 'MessagesController@' . config('messenger.controller_store'));
+    Route::get(config('messenger.index'), 'MessagesController@'.config('messenger.controller_index'));
+    Route::get(config('messenger.create'), 'MessagesController@'.config('messenger.controller_create'));
+    Route::post(config('messenger.store'), 'MessagesController@'.config('messenger.controller_store'));
 });

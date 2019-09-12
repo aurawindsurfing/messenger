@@ -16,7 +16,7 @@ class GenerateDummyMessages extends Command
         $firstUser = config('messenger.firstUserId');
         $secondUser = config('messenger.secondUserId');
 
-        \factory(Thread::class)->create(['from_user_id' => 1, 'to_user_id' => 2]);
+        \factory(Thread::class)->create(['from_user_id' => $firstUser, 'to_user_id' => $secondUser]);
         \factory(Message::class)->create(['thread_id' => 1, 'user_id' => $firstUser, 'body' => 'Hi! Thanks for trying out laravel messenger package!']);
         \factory(Message::class)->create(['thread_id' => 1, 'user_id' => $secondUser, 'body' => 'Hey! Let me try it and I\'ll get back to you']);
         \factory(Message::class)->create(['thread_id' => 1, 'user_id' => $firstUser, 'body' => 'How is it working for you?']);

@@ -1,8 +1,14 @@
-# Messenger for Laravel
+# Messenger for Laravel [![Packagist License][badge_license]](LICENSE.md) [![For Laravel][badge_laravel]][link-github-repo]
 
-[![Latest Version on Packagist](https://img.shields.io/github/v/release/aurawindsurfing/messenger?style=flat-square)](https://packagist.org/packages/aurawindsurfing/messenger)
-[![Build Status](https://img.shields.io/travis/aurawindsurfing/messenger/master.svg?style=flat-square)](https://travis-ci.org/aurawindsurfing/messenger)
-[![Quality Score](https://img.shields.io/scrutinizer/g/aurawindsurfing/messenger.svg?style=flat-square)](https://scrutinizer-ci.com/g/aurawindsurfing/messenger)
+[![Travis Status][badge_build]][link-travis]
+[![Coverage Status][badge_coverage]][link-scrutinizer]
+[![Scrutinizer Code Quality][badge_quality]][link-scrutinizer]
+[![SensioLabs Insight][badge_insight]][link-insight]
+[![Github Issues][badge_issues]][link-github-issues]
+
+[![Packagist][badge_package]][link-packagist]
+[![Packagist Release][badge_release]][link-packagist]
+[![Packagist Downloads][badge_downloads]][link-packagist]
 
 This package allows you to create simple user to user messaging system  within your Laravel application. It comes packaged with all the views and even a simple admin panel.
 It does not have support for group conversations yet as well as it does not support editing of messages. It is simply send and receive messenger.
@@ -10,11 +16,15 @@ It does not have support for group conversations yet as well as it does not supp
 ![Messenger Dashboard](https://github.com/aurawindsurfing/messenger/blob/master/messages_dashboard.png?raw=true)
 
 ## Features
+Easy setup &amp; configuration.
 * One to one messaging between users
 * Multiple conversations (threads) per user
 * Returns all messages associated with the user
 * Returns the user's unread message count
-
+* Well documented &amp; IDE Friendly.
+* Well tested with maximum code quality.
+* Laravel `5.7` to `5.8` are supported.
+* Made with :heart: &amp; :coffee:.
 
 ## Laravel Versions
 
@@ -22,7 +32,7 @@ Laravel | Messenger
 --- | ---
 5.7+ | 1.*
 
-## Installation (Laravel 5.7+)
+## Installation
 
 You can install the package via composer:
 
@@ -48,52 +58,7 @@ This package apart from standard config and migrations files includes also contr
 ```bash
 php artisan vendor:publish  --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
 ```
-
-### Publish separately
-
-Publish config:
-
-```bash
-php artisan vendor:publish --tag=config --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
-```
-It will create a file:
-```bash
-config/messenger.php
-```
-
-**(Optional)** This package adds basic routes to your application needed for handling the message creation and viewing of messages, you can customise them in your config file:
-
-```php
-'index'   => '/messages/{thread?}',
-'create'  => '/messages/{user}/create',
-'store'   => '/messages/{thread}/store',
-```
-
 Create a `users` table if you do not have one already. If you need one, the default Laravel migration will be satisfactory.
-
-**(Optional)** This package allows you to create fake messages between users so you can construct views more easily. You can customise for which users the messages will be created in your config file:
-
-```php
-'firstUserId'  => 1,
-'secondUserId' => 2,
-```
-
-Publish views:
-
-```bash
-php artisan vendor:publish --tag=views --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
-```
-
-They will be placed in:
-```bash
-resources/views/vendor/messenger
-```
-    
-Publish migrations:
-
-```bash
-php artisan vendor:publish --tag=migrations --provider="Aurawindsurfing\Messenger\MessengerServiceProvider" 
-```
 
 Migrate your database:
 
@@ -101,23 +66,18 @@ Migrate your database:
 php artisan migrate
 ```
 
-Commands and factories:
+Edit config:
 
-Package factories and commands will be available for your laravel app with autoloading. There is no need to copy them to your application folder.
+```bash
+config/messenger.php
+```
 
-Customising MessengerController:
-
-It is very likely that you would like to customise controller as usually messages are viewed in some sort of user profile page or menu.
-To do this simply extend provided controller and overwrite it's methods.
+This package allows you to create fake messages between users so you can construct views more easily. To view fake messages you NEED to be logged in as one of the users otherwise you will receive 404 error.
+To choose for which users to create messages edit your config file:
 
 ```php
-<?php
-
-namespace App\Http\Controllers;
-
-use Aurawindsurfing\Messenger\Http\Controllers\MessagesController;
-
-class YourController extends MessagesController {
+'firstUserId'  => 1,
+'secondUserId' => 2,
 ```
 
 Add the trait to your user model:
@@ -131,18 +91,12 @@ class User extends Authenticatable {
 
 ```
 
-Finally for your convenience you can populate your messenger tables with dummy data so you will be able to see some messages displayed. To do this run:
+## Usage
+
+Populate your messenger tables with dummy data so you will be able to see some messages displayed. To do this run:
 ```bash
 php artisan messenger:generate
 ```
-To clear all your dummy data run below command in your console. Be careful as this command will delete all data from messages table including real messages if they exist!
-```bash
-php artisan messenger:deleteAllData
-```
-
-
-
-## Usage
 
 Visit:
 
@@ -150,6 +104,61 @@ Visit:
 https://yourapp.test/messages/1
 ```
 To see message threads received by first user
+
+To clear all your dummy data run below command in your console. Be careful as this command will delete all data from messages table including real messages if they exist!
+```bash
+php artisan messenger:deleteAllData
+```
+
+# Customise
+
+##Controller 
+
+**(Optional)** This package uses its own MessagesController which you might choose to overwrite. To do this you need to copy it from 
+```bash
+/vendor/aurawindsurfing/messenger/src/Http/Controllers
+``` 
+to 
+```bash
+/app/Http/Controllers
+
+```
+Edit your config file and your copied controller to amend controller namesapce:
+```php
+'controller_namespace' => 'Http\Controllers',
+```
+
+This controller uses 3 methods, ``index``, ``create``, ``store`` feel free to rename them to whatever is necessary in your own application.
+
+Edit your config file and amend method names:
+```php
+// customise controller method names if you choose to overwrite default controller
+'controller_index'  => 'index',
+'controller_create' => 'create',
+'controller_store'  => 'store',
+
+```
+## Views:
+
+```bash
+php artisan vendor:publish --tag=views --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
+```
+
+They will be placed in:
+```bash
+resources/views/vendor/messenger
+```
+    
+## Migrations:
+
+```bash
+php artisan vendor:publish --tag=migrations --provider="Aurawindsurfing\Messenger\MessengerServiceProvider" 
+```
+
+## Commands and factories:
+
+Package factories and commands will be available for your laravel app with autoloading. You can copy them to relevant places and overwrite them if needed.
+
 
 ### Testing
 
@@ -176,3 +185,26 @@ If you discover any security related issues, please email tom@gazeta.ie instead 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+
+[badge_laravel]:      https://img.shields.io/badge/Laravel-5.7%20to%205.8-orange.svg?style=flat-square
+[badge_license]:      https://img.shields.io/packagist/l/aurawindsurfing/messenger.svg?style=flat-square
+[badge_build]:        https://img.shields.io/travis/aurawindsurfing/messenger.svg?style=flat-square
+[badge_coverage]:     https://img.shields.io/scrutinizer/coverage/g/aurawindsurfing/messenger.svg?style=flat-square
+[badge_quality]:      https://img.shields.io/scrutinizer/g/aurawindsurfing/messenger.svg?style=flat-square
+[badge_insight]:      https://img.shields.io/sensiolabs/i/0fe62754-1219-409a-9d05-b6ae7e3e342f.svg?style=flat-square
+[badge_issues]:       https://img.shields.io/github/issues/aurawindsurfing/messenger.svg?style=flat-square
+[badge_package]:      https://img.shields.io/badge/package-aurawindsurfing/messenger-blue.svg?style=flat-square
+[badge_release]:      https://img.shields.io/packagist/v/aurawindsurfing/messenger.svg?style=flat-square
+[badge_downloads]:    https://img.shields.io/packagist/dt/aurawindsurfing/messenger.svg?style=flat-square
+
+[link-author]:        https://github.com/aurawindsurfing
+[link-github-repo]:   https://github.com/aurawindsurfing/messenger
+[link-github-issues]: https://github.com/aurawindsurfing/messenger/issues
+[link-contributors]:  https://github.com/aurawindsurfing/messenger/graphs/contributors
+[link-packagist]:     https://packagist.org/packages/aurawindsurfing/messenger
+[link-travis]:        https://travis-ci.org/aurawindsurfing/messenger
+[link-scrutinizer]:   https://scrutinizer-ci.com/g/aurawindsurfing/messenger/?branch=master
+[link-insight]:       https://insight.sensiolabs.com/projects/0fe62754-1219-409a-9d05-b6ae7e3e342f
+
+

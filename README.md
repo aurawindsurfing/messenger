@@ -113,7 +113,7 @@ php artisan messenger:deleteAllData
 
 # Customise
 
-##Controller 
+## Controller 
 
 **(Optional)** This package uses its own MessagesController which you might choose to overwrite. To do this you need to copy it from 
 ```bash

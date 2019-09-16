@@ -53,7 +53,9 @@ Run:
 composer update
 ```
 
-This package apart from standard config and migrations files includes also controller, views, factories and console commands. To publish all assets run:
+This package apart from standard config and migrations files includes also controller, views, factories and console commands. 
+
+To publish all assets run:
 ```bash
 php artisan vendor:publish  --provider="Aurawindsurfing\Messenger\MessengerServiceProvider"
 ```

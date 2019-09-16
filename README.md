@@ -121,12 +121,12 @@ php artisan messenger:deleteAllData
 ``` 
 to 
 ```bash
-/app/Http/Controllers
+/App/Http/Controllers
 
 ```
 Edit your config file and your copied controller to amend controller namesapce:
 ```php
-'controller_namespace' => 'Http\Controllers',
+'controller_namespace' => 'App\Http\Controllers',
 ```
 
 This controller uses 3 methods, ``index``, ``create``, ``store`` feel free to rename them to whatever is necessary in your own application.

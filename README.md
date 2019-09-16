@@ -99,7 +99,7 @@ Populate your messenger tables with dummy data so you will be able to see some m
 php artisan messenger:generate
 ```
 
-Visit:
+Log in as one of the users designated in the config file in visit:
 
 ```bash
 https://yourapp.test/messages/1
